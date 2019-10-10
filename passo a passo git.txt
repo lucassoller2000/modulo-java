@@ -1,0 +1,18 @@
+git pull
+git checkout develop
+git checkout -b 'feat-null'
+git add .
+git commit
+git push
+copiar e colar o codigo que mostrar
+merge request
+merge
+git pull no develop
+
+
+ctrl + shift + a 
+Execute Maven Goal
+install:install-file -Dfile=c:\ojdbc7-12.1.0.1.jar -DgroupId=com.oracle -DartifactId=ojdbc7 -Dversion=12.1.0.1 -Dpackaging=jar
+
+na service:
+crtl + shift + t

@@ -1,0 +1,20 @@
+create tablespace hackathondat
+
+datafile 'C:\oraclexe\app\oracle\oradata\XE\hackathondat01.dbf'
+
+size 100m
+
+autoextend on
+
+next 100m
+
+maxsize 2048m;
+
+
+
+create user hackathon identified by redesocial
+default tablespace hackathondat; 
+
+
+
+grant connect, resource, create view to hackathon;

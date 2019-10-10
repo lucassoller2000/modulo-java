@@ -1,0 +1,996 @@
+{
+	"info": {
+		"_postman_id": "32ee814c-5016-4216-abef-f284a9a7851e",
+		"name": "tcc",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "usuario",
+			"description": "",
+			"item": [
+				{
+					"name": "/usuario",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8081/usuario",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"usuario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/usuario/{id}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8081/usuario/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"usuario",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/usuario/{logado}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8081/usuario/logado",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"usuario",
+								"logado"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/usuario/buscar/{nomeCompletoOuEmail}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8081/usuario/buscar/lucas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"usuario",
+								"buscar",
+								"lucas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/usuario",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nomeCompleto\": \"Lucas\",\n  \"email\": \"lucassoller2000@gmail.com\",\n  \"senha\": \"123\",\n  \"dataNascimento\": \"15-09-2000\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/public/usuario",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"public",
+								"usuario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/usuario/{id}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8081/public/usuario/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"public",
+								"usuario",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "login",
+			"description": "",
+			"item": [
+				{
+					"name": "/login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "16d4d3df-9326-4dde-8345-f99c7513fe9a",
+								"type": "text/javascript",
+								"exec": [
+									"var json = JSON.parse(responseBody);",
+									"",
+									"if (responseCode.code === 200) {",
+									"    postman.setGlobalVariable(\"access_token\", json.accessToken);",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"12345\",\n  \"senha\": \"1234\"\n  \n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/public/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"public",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "post",
+			"description": "",
+			"item": [
+				{
+					"name": "/post",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a5528ab8-cb85-4951-a8ad-97a28d50ec7a",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI2MiIsImlhdCI6MTUzMDQwNDg5NiwiZXhwIjoxNTMwNDkxMjk2LCJpZCI6NjIsImVtYWlsIjoibHVjYXNzIn0.VwU4D0b-O3prxwCzamk7AEhZ8vfOqyDJEbSZez0QXszkWQdAxBMLmv8VfzLwoe1O8AtBsnOmq419q8mp1z03jQ"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"postagem\": \"texto\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/post",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"post"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/post/{id}",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a5528ab8-cb85-4951-a8ad-97a28d50ec7a",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI2MyIsImlhdCI6MTUzMDI5NjQ1MiwiZXhwIjoxNTMwMzgyODUyLCJpZCI6NjMsImVtYWlsIjoiMTIzNDUifQ.bGmtQaFOeSP3cAUM_CNppx17fQtSyjqyTELgueqYxhQHDp2RmZj4Tmdyd21Uq_-CQSn2ueCKK-UxeGxFkbZMnA"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"postagem\": \"texto\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/post/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"post",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/post/{id}/privacidade",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a5528ab8-cb85-4951-a8ad-97a28d50ec7a",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI2MyIsImlhdCI6MTUzMDI5NjQ1MiwiZXhwIjoxNTMwMzgyODUyLCJpZCI6NjMsImVtYWlsIjoiMTIzNDUifQ.bGmtQaFOeSP3cAUM_CNppx17fQtSyjqyTELgueqYxhQHDp2RmZj4Tmdyd21Uq_-CQSn2ueCKK-UxeGxFkbZMnA"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"postagem\": \"texto\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/post/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"post",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/post/{id}",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a5528ab8-cb85-4951-a8ad-97a28d50ec7a",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI2MyIsImlhdCI6MTUzMDI5NjQ1MiwiZXhwIjoxNTMwMzgyODUyLCJpZCI6NjMsImVtYWlsIjoiMTIzNDUifQ.bGmtQaFOeSP3cAUM_CNppx17fQtSyjqyTELgueqYxhQHDp2RmZj4Tmdyd21Uq_-CQSn2ueCKK-UxeGxFkbZMnA"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"postagem\": \"texto\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/post/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"post",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/post/{id}",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a5528ab8-cb85-4951-a8ad-97a28d50ec7a",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyMSIsImlhdCI6MTUzMDM4NjQ4NSwiZXhwIjoxNTMwNDcyODg1LCJpZCI6MjEsImVtYWlsIjoibHVjYXNzb2xsZXIyMDAwQGdtYWlsLmNvbSJ9.CsBzPAEmk0UiBTE-xEtqmG19qlkzWDuR9JJHYNZDTz2mTgF4l3_vDEFmjvLDqGRUM9mSiRAKCF3jPftl7_997A"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"postagem\": \"texto\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/post/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"post",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/post/amigos",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a5528ab8-cb85-4951-a8ad-97a28d50ec7a",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyMSIsImlhdCI6MTUzMDM4NjQ4NSwiZXhwIjoxNTMwNDcyODg1LCJpZCI6MjEsImVtYWlsIjoibHVjYXNzb2xsZXIyMDAwQGdtYWlsLmNvbSJ9.CsBzPAEmk0UiBTE-xEtqmG19qlkzWDuR9JJHYNZDTz2mTgF4l3_vDEFmjvLDqGRUM9mSiRAKCF3jPftl7_997A"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"postagem\": \"texto\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/post/amigos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"post",
+								"amigos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/post/usuario/{id}",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a5528ab8-cb85-4951-a8ad-97a28d50ec7a",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI2MyIsImlhdCI6MTUzMDI5NjQ1MiwiZXhwIjoxNTMwMzgyODUyLCJpZCI6NjMsImVtYWlsIjoiMTIzNDUifQ.bGmtQaFOeSP3cAUM_CNppx17fQtSyjqyTELgueqYxhQHDp2RmZj4Tmdyd21Uq_-CQSn2ueCKK-UxeGxFkbZMnA"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"postagem\": \"texto\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/post/usuario/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"post",
+								"usuario",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/post",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a5528ab8-cb85-4951-a8ad-97a28d50ec7a",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI0MyIsImlhdCI6MTUzMDQwMjAwMywiZXhwIjoxNTMwNDg4NDAzLCJpZCI6NDMsImVtYWlsIjoibHVjYXNzcyJ9.bF0j185t2vspZ9OqE7VFCXAEY-2PRBxj3FXzduV7ev3hNzctr1-n3QY8ZHg20_7tj9gS0CLQWuaQLeVJm2GCbw"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"postagem\": \"texto\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/post",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"post"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/post/amigos",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a5528ab8-cb85-4951-a8ad-97a28d50ec7a",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI2MyIsImlhdCI6MTUzMDQwNDk5MSwiZXhwIjoxNTMwNDkxMzkxLCJpZCI6NjMsImVtYWlsIjoibHVjYXNzcyJ9.ny1T_kmldgL-1nP-BJc1WGtEmessNIJ1emATkgwWYo-BiEKFis0Y7Ag4WpdeYnwPMqpcTrIrgDpC_ycMPB1gqQ"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"postagem\": \"texto\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/post/amigos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"post",
+								"amigos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "curtida",
+			"description": "",
+			"item": [
+				{
+					"name": "/curtida",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyMyIsImlhdCI6MTUzMDM5Mzg3MSwiZXhwIjoxNTMwNDgwMjcxLCJpZCI6MjMsImVtYWlsIjoibHVjYXMifQ.lDf0cXXZVQmRxvuQJZYKFa5T_vsgiRveQ4myb8hDUJ9ok0_i95kcDujojIZlQjhzekPWnVQsi-zy_3AECGbckA"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"idPost\": 2\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/curtida",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"curtida"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/curtida/{id}",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI2MyIsImlhdCI6MTUzMDMwMjE1MywiZXhwIjoxNTMwMzg4NTUzLCJpZCI6NjMsImVtYWlsIjoiMTIzNDUifQ.Dx-wrQSs93IU9RU4br96jzwTpjMauaLWAVBjBQKakQ9DydtFrENZheyO-O02ijH4pNX1AJN_q5qxLKeccwLu0w"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8081/curtida/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"curtida",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "comentario",
+			"description": "",
+			"item": [
+				{
+					"name": "/comentario",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI0MiIsImlhdCI6MTUzMDQwMTc1NywiZXhwIjoxNTMwNDg4MTU3LCJpZCI6NDIsImVtYWlsIjoibHVjYXNzIn0.IHqte_dcCP7WN2jzNokjwNpPhmto82JWWGas5hhjEKjH0fl1Nw7VEuAh7s3TZ13pAnuxFSDd-8W4VX6_6UV2iQ"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"idPost\": 21,\n\t\"comentario\": \"texto\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/comentario",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"comentario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/comentario/{id}",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI2MyIsImlhdCI6MTUzMDMwMjE1MywiZXhwIjoxNTMwMzg4NTUzLCJpZCI6NjMsImVtYWlsIjoiMTIzNDUifQ.Dx-wrQSs93IU9RU4br96jzwTpjMauaLWAVBjBQKakQ9DydtFrENZheyO-O02ijH4pNX1AJN_q5qxLKeccwLu0w"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8081/comentario/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"comentario",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "96b97dd4-a877-43b8-937c-9c0fc79f9678",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "fe5d982b-3480-4e88-a5c3-041cd9c8c85f",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "amizade",
+			"description": "",
+			"item": [
+				{
+					"name": "/amizade",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI2MyIsImlhdCI6MTUzMDQ4ODgyNywiZXhwIjoxNTMwNTc1MjI3LCJpZCI6NjMsImVtYWlsIjoibHVjYXNzcyJ9.BZ6PE6-HHNrly1d2PlENf9Wdnu0VvUXgNUwZUQbYSp9wbepJRdXPPCg-JQYCpksJ1vGMn37YXELiORdxOBkKdA"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"idUsuario\": 62\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/amizade",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"amizade"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/amizade",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyMSIsImlhdCI6MTUzMDM4NjQ4NSwiZXhwIjoxNTMwNDcyODg1LCJpZCI6MjEsImVtYWlsIjoibHVjYXNzb2xsZXIyMDAwQGdtYWlsLmNvbSJ9.CsBzPAEmk0UiBTE-xEtqmG19qlkzWDuR9JJHYNZDTz2mTgF4l3_vDEFmjvLDqGRUM9mSiRAKCF3jPftl7_997A"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8081/amizade",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"amizade"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/amizade/{id}",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyMSIsImlhdCI6MTUzMDM4NjQ4NSwiZXhwIjoxNTMwNDcyODg1LCJpZCI6MjEsImVtYWlsIjoibHVjYXNzb2xsZXIyMDAwQGdtYWlsLmNvbSJ9.CsBzPAEmk0UiBTE-xEtqmG19qlkzWDuR9JJHYNZDTz2mTgF4l3_vDEFmjvLDqGRUM9mSiRAKCF3jPftl7_997A"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8081/amizade/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"amizade",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/amizade/{id}",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI2MiIsImlhdCI6MTUzMDQwNDg5NiwiZXhwIjoxNTMwNDkxMjk2LCJpZCI6NjIsImVtYWlsIjoibHVjYXNzIn0.VwU4D0b-O3prxwCzamk7AEhZ8vfOqyDJEbSZez0QXszkWQdAxBMLmv8VfzLwoe1O8AtBsnOmq419q8mp1z03jQ"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8081/amizade/41",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"amizade",
+								"41"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/amizade/pendente",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI0MyIsImlhdCI6MTUzMDQwMjAwMywiZXhwIjoxNTMwNDg4NDAzLCJpZCI6NDMsImVtYWlsIjoibHVjYXNzcyJ9.bF0j185t2vspZ9OqE7VFCXAEY-2PRBxj3FXzduV7ev3hNzctr1-n3QY8ZHg20_7tj9gS0CLQWuaQLeVJm2GCbw"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8081/amizade/pendente",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"amizade",
+								"pendente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/amizade/aceita/amigos",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI2MiIsImlhdCI6MTUzMDQwNDg5NiwiZXhwIjoxNTMwNDkxMjk2LCJpZCI6NjIsImVtYWlsIjoibHVjYXNzIn0.VwU4D0b-O3prxwCzamk7AEhZ8vfOqyDJEbSZez0QXszkWQdAxBMLmv8VfzLwoe1O8AtBsnOmq419q8mp1z03jQ"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8081/amizade/aceita/amigos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"amizade",
+								"aceita",
+								"amigos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/amizade/buscar/amigos/{nomeCompletoOuEmail}",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI2MiIsImlhdCI6MTUzMDQwNDg5NiwiZXhwIjoxNTMwNDkxMjk2LCJpZCI6NjIsImVtYWlsIjoibHVjYXNzIn0.VwU4D0b-O3prxwCzamk7AEhZ8vfOqyDJEbSZez0QXszkWQdAxBMLmv8VfzLwoe1O8AtBsnOmq419q8mp1z03jQ"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8081/amizade/buscar/amigos/{nomeCompletoOuEmail}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"amizade",
+								"buscar",
+								"amigos",
+								"{nomeCompletoOuEmail}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "registro",
+			"description": "",
+			"item": [
+				{
+					"name": "/public/registro",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nomeCompleto\": \"Lucassss\",\n  \"email\": \"lucasss\",\n  \"senha\": \"123\",\n  \"dataNascimento\": \"2000-09-15\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/public/registro",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"public",
+								"registro"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

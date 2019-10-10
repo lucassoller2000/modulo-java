@@ -1,0 +1,13 @@
+para cadastrar um cliente deve ser informado o cpf e o nome na requestBody;
+
+para cadastrar um filme deve ser informado o titulo e a categoria na requestBody. O titulo é único;
+
+para cadastrar uma fita deve ser informado o titulo do filme a que pertence na requestBody.
+
+para alugar filmes devem ser seguidos os seguintes passos:
+
+- abrir um pedido em que deve ser informado o cpf do cliente na requestBody;
+- cadastrar locações para o pedido em que deve ser informado o id do pedido na url e o cpf do cliente e o titulo da fita na requestBody;
+- fechar o pedido em que deve ser informado o id do pedido na url;
+
+o combo e o valor total seram calculados após o fechamento do pedido;
